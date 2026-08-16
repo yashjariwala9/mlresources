@@ -502,5 +502,15 @@
          <li><a href="https://www.harnham.com/">Harnham</a></li>
          <li><a href="https://www.burtchworks.com/job-seekers">Burtch Works</a></li>
       </ul>
+		<!-- Script to open external links in a new tab -->
+      <script>
+         document.querySelectorAll('a').forEach(link => {
+            let href = link.getAttribute('href');
+            if (href && href.startsWith('http')) {
+               link.setAttribute('target', '_blank');
+               link.setAttribute('rel', 'noopener noreferrer');
+            }
+         });
+      </script>
    </body>
 </html>
