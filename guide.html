@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Interview Guide & Tips</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <style>
+         :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #242424;
+            --text-primary: #e5e5e5;
+            --text-secondary: #b0b0b0;
+            --text-accent: #4fc3f7;
+            --border-color: #333;
+            --link-color: #4fc3f7;
+            --link-visited: #81c784;
+            --code-bg: #2d2d2d;
+            --table-border: #444;
+         }
+         
+         * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+         }
+         
+         body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            background-attachment: fixed;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+         }
+
+         .toc {
+            background: var(--bg-tertiary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-color);
+         }
+
+         .toc h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: var(--text-accent);
+         }
+
+         .toc ul {
+            columns: 2;
+            column-gap: 2rem;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+         }
+
+         .toc li {
+            margin-bottom: 0.5rem;
+         }
+
+         h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+         }
+         
+         h1 { font-size: 2.2rem; font-weight: 700; text-align: center; margin-bottom: 2rem; }
+         h2 { font-size: 1.8rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; padding-top: 1rem; color: var(--text-primary);}
+         h3 { font-size: 1.4rem; color: var(--text-accent); margin-top: 2rem;}
+         h4 { font-size: 1.1rem; color: #fff; margin-top: 1.5rem; }
+         
+         hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 2.5rem 0;
+         }
+         
+         a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid transparent;
+            word-break: break-word;
+         }
+         
+         a:hover {
+            color: var(--text-accent);
+            border-bottom-color: var(--link-color);
+            text-shadow: 0 0 8px rgba(79, 195, 247, 0.3);
+         }
+         
+         a:visited { color: var(--link-visited); }
+         
+         p, li {
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+         }
+         
+         ol, ul {
+            padding-left: 1.8rem;
+            margin-bottom: 1.5rem;
+         }
+
+         ol li::marker, ul li::marker {
+            color: var(--text-secondary);
+         }
+
+         .two-column-list {
+            columns: 2;
+            column-gap: 3rem;
+         }
+
+         .two-column-list li {
+            break-inside: avoid-column;
+         }
+
+         .three-column-list {
+            columns: 3;
+            column-gap: 2rem;
+         }
+
+         .three-column-list li {
+            break-inside: avoid-column;
+         }
+         
+         pre, code {
+            font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            background: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+         }
+         
+         ::-webkit-scrollbar { width: 8px; }
+         ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+         ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+         ::-webkit-scrollbar-thumb:hover { background: var(--link-color); }
+         
+         @media (max-width: 768px) {
+            body { padding: 1.5rem 1rem; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
+            .two-column-list, .three-column-list, .toc ul { columns: 1; }
+         }
+
+	.nav-bar {
+            background: var(--bg-tertiary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+         }
+         
+         .nav-bar a {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+         }
+         
+         .nav-bar a.active {
+            color: var(--text-accent);
+            border-bottom: 2px solid var(--text-accent);
+         }
+      </style>
+   </head>
+   <body>
+	<!-- NAVIGATION BAR -->
+      <nav class="nav-bar">
+         <a href="index.html">Resources</a>
+         <a href="guide.html" class="active">Interview Guide</a>
+      </nav>
+      <h1>Interview Guide & Tips</h1>
+
+      <!-- Table of Contents -->
+      <div class="toc">
+         <h3>Table of Contents</h3>
+         <ul>
+            <li><a href="#behavioral">Recruiter & Behavioral Round</a></li>
+            <li><a href="#leadership-principles">Leadership Principles</a></li>
+            <li><a href="#excel">Excel</a></li>
+            <li><a href="#python">Python</a></li>
+            <li><a href="#sql-subpage">SQL</a></li>
+            <li><a href="#data-warehouse">Data Warehouse</a></li>
+            <li><a href="#power-bi">Power BI</a></li>
+            <li><a href="#product-sense">Product Sense & Case Studies</a></li>
+            <li><a href="#ab-testing">A/B Testing & Experimentation</a></li>
+            <li><a href="#ml-tips">ML Tips</a></li>
+         </ul>
+      </div>
+
+      <h2 id="behavioral">Recruiter and Behavioral Round</h2>
+      <p>This round focuses on your background, communication skills, and fit for the role.</p>
+      
+      <h4>Introductory Questions</h4>
+      <ul>
+         <li>Tell me about yourself.</li>
+         <li>Why do you want this role or company?</li>
+         <li>What are your core strengths?</li>
+         <li>What is your biggest weakness?</li>
+         <li>Why are you leaving your current job?</li>
+         <li>Where do you see yourself in 5 years?</li>
+         <li>What are your salary expectations?</li>
+      </ul>
+
+      <h4>Situational and STAR Method Questions</h4>
+      <ul>
+         <li>Describe a challenging project you have worked on.</li>
+         <li>How do you handle pressure or tight deadlines?</li>
+         <li>Tell me about a time you made a data driven recommendation that was not followed.</li>
+         <li>How do you approach explaining complex analyses to non technical stakeholders?</li>
+         <li>Tell me about a project you are particularly proud of.</li>
+         <li>Walk me through an analysis you did and the impact it had.</li>
+         <li>Describe a time when you had to deal with a difficult stakeholder.</li>
+      </ul>
+
+      <h4>The Core Strategy: STAR Method</h4>
+      <p>For every behavioral question, do not meander. Use the <strong>STAR</strong> framework to structure your answers concisely.</p>
+      <ul>
+         <li><strong>S - Situation:</strong> Briefly describe the context or problem. (e.g., "We noticed a 15% drop in user engagement.")</li>
+         <li><strong>T - Task:</strong> Explain your specific responsibility. (e.g., "I was tasked with identifying the root cause.")</li>
+         <li><strong>A - Action:</strong> Describe <strong>what YOU did</strong> (not just "we"). Focus on your analysis, the tools used, and the decisions made. (e.g., "I performed a cohort analysis in SQL...")</li>
+         <li><strong>R - Result:</strong> Quantify the outcome. (e.g., "This led to a 10% reduction in churn.")</li>
+      </ul>
+
+      <h4>Recruiter Round Tips (The "Fit" Check)</h4>
+      <p>While the principles above are crucial for the behavioral rounds, the <strong>Recruiter Round</strong> (Day 1) is about making a strong first impression.</p>
+      <ul>
+         <li><strong>"Tell me about yourself":</strong> Keep it to 2 minutes. Highlight your current role, relevant past experience, and why you want to join <em>this specific company</em> (mentioning their principles is a great touch).</li>
+         <li><strong>"Why Amazon?":</strong> Connect your answer to their specific products (e.g., AWS, Prime) or culture (Leadership Principles). Avoid generic answers; show you've done your research.</li>
+         <li><strong>"What are your strengths?":</strong> Pick 2-3 strengths relevant to data analysis (e.g., "Turning complex data into actionable insights") and back them up with examples.</li>
+         <li><strong>"What is your biggest weakness?":</strong> Be honest but choose a weakness that isn't critical to the role. Show <strong>self-awareness</strong> and the steps you are taking to improve.</li>
+      </ul>
+
+      <h2 id="leadership-principles">The 16 Leadership Principles & Sample Questions</h2>
+      <p>Recruiters and hiring managers will ask questions designed to see if you embody these values. Prepare 2 stories for each principle using the STAR method.</p>
+      
+      <div class="two-column-list">
+         <ul>
+            <li><strong>I. Customer Obsession:</strong> Leaders start with the customer and work backward. They work vigorously to earn and keep customer trust.
+               <ul>
+                  <li>Tell me about a time you dealt with a difficult customer.</li>
+                  <li>Describe a time you didn't meet customer expectations. How did you fix it?</li>
+                  <li>How do you prioritize customer needs when you have conflicting data?</li>
+               </ul>
+            </li>
+            <li><strong>II. Ownership:</strong> Leaders are owners. They think long-term and don't sacrifice long-term value for short-term results. They never say "that's not my job."
+               <ul>
+                  <li>Tell me about a time you took on a task outside your job description.</li>
+                  <li>Describe a time you had to work on a project with unclear responsibilities.</li>
+               </ul>
+            </li>
+            <li><strong>III. Invent and Simplify:</strong> Leaders expect and require innovation and invention from their teams and always find ways to simplify.
+               <ul>
+                  <li>Describe a time you found a simple solution to a complex data problem.</li>
+                  <li>Tell me about a time you automated a manual process to save time.</li>
+                  <li><em>2026 note:</em> A strong answer increasingly mentions automating a manual step using a script or an AI assistant, not just an Excel macro — this signals you simplify with current tools.</li>
+               </ul>
+            </li>
+            <li><strong>IV. Are Right, A Lot:</strong> Leaders have strong judgment and good instincts. They seek diverse perspectives and work to disconfirm their beliefs.
+               <ul>
+                  <li>Tell me about a time you had to make a decision with incomplete data.</li>
+                  <li>Describe a time you were wrong. How did you handle it?</li>
+               </ul>
+            </li>
+            <li><strong>V. Learn and Be Curious:</strong> Leaders are never done learning and always seek to improve themselves.
+               <ul>
+                  <li>Tell me about an important lesson you learned in the past year.</li>
+                  <li>Describe a situation that changed your perspective on a technical approach.</li>
+               </ul>
+            </li>
+            <li><strong>VI. Hire and Develop the Best:</strong> Leaders raise the performance bar with every hire and promotion. They recognize talent and move them throughout the organization.
+               <ul>
+                  <li>Tell me about a time you mentored a junior analyst.</li>
+                  <li>Describe a time you helped a colleague improve their performance.</li>
+               </ul>
+            </li>
+            <li><strong>VII. Insist on the Highest Standards:</strong> Leaders have relentlessly high standards. They ensure that defects do not get sent down the line and that problems are fixed.
+               <ul>
+                  <li>Tell me about a time you were dissatisfied with the quality of a project. What did you do?</li>
+                  <li>Describe a time you motivated a team to go above and beyond.</li>
+               </ul>
+            </li>
+            <li><strong>VIII. Think Big:</strong> Leaders create and communicate a bold direction that inspires results. They think differently and look around corners for ways to serve customers.
+               <ul>
+                  <li>Tell me about your most significant professional achievement.</li>
+                  <li>Describe a time you proposed a bold new strategy based on your analysis.</li>
+               </ul>
+            </li>
+            <li><strong>IX. Bias for Action:</strong> Speed matters in business. Many decisions and actions are reversible and do not need extensive study. Calculated risk-taking is valued.
+               <ul>
+                  <li>Describe a time you took a calculated risk to meet a deadline.</li>
+                  <li>Tell me about a time you acted to fix a problem without waiting for permission.</li>
+               </ul>
+            </li>
+            <li><strong>X. Frugality:</strong> Accomplish more with less. Constraints breed resourcefulness, self-sufficiency, and invention.
+               <ul>
+                  <li>Tell me about a time you had to complete a project with limited resources or budget.</li>
+                  <li>Describe a time you had to be resourceful to get the data you needed.</li>
+               </ul>
+            </li>
+            <li><strong>XI. Earn Trust:</strong> Leaders listen attentively, speak candidly, and treat others respectfully. They are vocally self-critical, even when doing so is awkward or embarrassing.
+               <ul>
+                  <li>Describe a time you had to speak up in a difficult environment.</li>
+                  <li>Tell me about a time you had to deliver bad news (e.g., poor metrics) to a stakeholder.</li>
+               </ul>
+            </li>
+            <li><strong>XII. Dive Deep:</strong> Leaders operate at all levels, stay connected to the details, audit frequently, and are skeptical when metrics and anecdote differ.
+               <ul>
+                  <li>Tell me about the most complex problem you solved using deep data analysis.</li>
+                  <li>Give an example of a time you used data to find the root cause of a specific issue.</li>
+               </ul>
+            </li>
+            <li><strong>XIII. Have Backbone; Disagree and Commit:</strong> Leaders are obligated to respectfully challenge decisions when they disagree, even when doing so is uncomfortable or exhausting. Once a decision is determined, they commit wholly.
+               <ul>
+                  <li>Describe a time you disagreed with a team member or manager's approach.</li>
+                  <li>Tell me about an unpopular decision you made and how you handled it.</li>
+               </ul>
+            </li>
+            <li><strong>XIV. Deliver Results:</strong> Leaders focus on the key inputs for their business and deliver them with the right quality and in a timely fashion.
+               <ul>
+                  <li>Describe a situation where you faced multiple conflicting deadlines. How did you handle it?</li>
+                  <li>Tell me about a time your team was struggling, and you helped them push through to success.</li>
+               </ul>
+            </li>
+            <li><strong>XV. Strive to be Earth's Best Employer:</strong> Leaders work every day to create a safer, more productive, higher-performing, more diverse, and more just work environment.
+               <ul>
+                  <li>Give an example of a time you fostered an inclusive environment in your team.</li>
+                  <li>How do you handle varying strengths and weaknesses within a project team?</li>
+               </ul>
+            </li>
+            <li><strong>XVI. Success and Scale Bring Broad Responsibility:</strong> We must be humble and thoughtful about even the secondary effects of our actions. Leaders create more than they consume and always leave things better than how they found them.
+               <ul>
+                  <li>Describe a moral or ethical dilemma you faced at work.</li>
+                  <li>Tell me about a time you left a project or process in a better state than you found it.</li>
+               </ul>
+            </li>
+         </ul>
+      </div>
+      <p><em>Reference:</em> <a href="https://www.levels.fyi/blog/amazon-leadership-principles.html">Levels.fyi Amazon Leadership Principles Blog</a></p>
+
+      <hr>
+
+      <h2 id="excel">Excel</h2>
+      <p>Questions in this category test your ability to manipulate data and create visualizations using Excel.</p>
+      <ul class="two-column-list">
+         <li><strong>Lookup Functions:</strong> Explain the differences between VLOOKUP, HLOOKUP, and XLOOKUP.</li>
+         <li><strong>Pivot Tables:</strong> How comfortable are you with Pivot Tables? Can you walk through how you would create one?</li>
+         <li><strong>Daily Usage:</strong> What Excel functions do you use most frequently for data analysis?</li>
+         <li><strong>Data Cleaning:</strong> How would you clean a messy dataset in Excel?</li>
+         <li><strong>Advanced Tools:</strong> What is Power Query, and how would you use it in data analysis?</li>
+         <li><strong>Visualization:</strong> What visualization techniques do you use in Excel, and how do you choose the right chart type?</li>
+         <li><strong>Dashboards:</strong> How would you create an interactive dashboard in Excel?</li>
+      </ul>
+
+      <h2 id="python">Python</h2>
+      <p>Python interviews assess coding efficiency, library knowledge (Pandas/NumPy), and clean code practices.</p>
+      <ul>
+         <li><strong>Pandas & Data Manipulation:</strong>
+            <ul>
+               <li>When to use .map(), .apply(), and .applymap().</li>
+               <li>How to add grouped statistics without merging (using transform).</li>
+               <li>Why you should avoid .iterrows().</li>
+               <li>How to perform multi column filtering with nulls.</li>
+            </ul>
+         </li>
+         <li><strong>Performance & Optimization:</strong>
+            <ul>
+               <li>Why NumPy outperforms native Python lists.</li>
+               <li>Explain Broadcasting in NumPy.</li>
+               <li>Fast unique value counting (using Collections vs Pandas).</li>
+               <li>Generators vs Lists for memory efficiency.</li>
+            </ul>
+         </li>
+         <li><strong>Coding Challenges:</strong>
+            <ul>
+               <li>Write a query to count daily active users (DAU) for each of the last 30 days.</li>
+               <li>Write a function to calculate the maximum possible profit from a single purchase and sale of a stock.</li>
+            </ul>
+         </li>
+      </ul>
+
+      <hr>
+
+      <h2 id="sql-subpage">SQL Subpage</h2>
+
+      <h4>Database Fundamentals</h4>
+      <p>Before diving into SQL queries, it is essential to understand the foundational concepts of databases:</p>
+      <ul>
+         <li><strong>What is a Database (DB)?</strong> A database is an organized collection of data stored and accessed electronically. It allows efficient data retrieval and management.</li>
+         <li><strong>What is SQL?</strong> SQL (Structured Query Language) is a programming language used to interact with databases. It helps perform operations like retrieving, updating, or managing data.</li>
+         <li><strong>What is a Query?</strong> A query is a set of instructions written in SQL to communicate with a database and perform specific tasks, such as retrieving data.</li>
+         <li><strong>What is a Database Management System (DBMS)?</strong> DBMS is software that provides an interface to manage databases, allowing users to store, retrieve, and manipulate data.</li>
+         <li><strong>What is a Relational Database Management System (RDBMS)?</strong> RDBMS is a type of DBMS that organizes data into tables with rows and columns, ensuring data relationships are maintained.</li>
+         <li><strong>What is a SQL Client?</strong> A SQL client is a tool or software used to connect to and interact with databases using SQL.</li>
+         <li><strong>What is Normalization?</strong> Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity.</li>
+         <li><strong>Key Database Connection Information:</strong> To connect to a database, you need: Hostname (The address of the database server), Username (Your login ID for the database), Database name (The specific database to connect to), Password (The authentication key), and Port (The communication endpoint).</li>
+      </ul>
+
+      <h4>SQL Fundamentals & Intermediate Concepts</h4>
+      <ul>
+         <li><strong>Basic SQL Commands:</strong> <code>SELECT</code> Statement (Used to retrieve data from a database), <code>WHERE</code> Clause (Filters records based on conditions), and CRUD Operations (Create, Read, Update, Delete).</li>
+         <li><strong>ORDER BY Clause:</strong> Allows sorting of data in ascending or descending order.</li>
+         <li><strong>Joins:</strong> Combine data from multiple tables based on a related column (Inner Join, Left Join, Right Join, Outer Join, Self Join).</li>
+         <li><strong>Aggregation Functions:</strong> SUM (Adds up numeric data), COUNT (Counts the number of rows), AVG (Calculates the average), GROUP BY (Groups rows sharing a property and performs aggregate functions).</li>
+         <li><strong>Subqueries:</strong> Nested queries used within another SQL query.</li>
+         <li><strong>Window Functions:</strong> Perform calculations across a set of table rows related to the current row.</li>
+         <li><strong>Common Table Expressions (CTEs):</strong> Temporary result sets defined within a SQL query for better readability and reusability.</li>
+         <li><strong>Indexes and Optimization:</strong> Improve query performance by indexing frequently accessed columns.</li>
+      </ul>
+
+      <h4>Optimization & Order of Operations</h4>
+      <p><strong>SQL does NOT execute queries in the same order it is written in.</strong></p>
+      <ul>
+         <li>SQL commands are written in this order: SELECT, FROM, JOIN, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT.</li>
+         <li>But are executed in this order: FROM, JOIN, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT.</li>
+         <li><strong>How do we use SQL order of operations to write queries?</strong>
+            <ul>
+               <li>Start by optimizing the FROM clause: When using multiple tables, always start with the smallest table to reduce initial data volume.</li>
+               <li>Optimize your JOINs using the SQL order of operations. JOINs are one of the first to be executed & they are computationally expensive.</li>
+               <li>Order your JOINs to start with the smallest dataset that gets increasingly larger.</li>
+               <li>Ensure joined columns are indexed for faster matching.</li>
+               <li>Use ON clauses to reduce the joined dataset size early in the process.</li>
+               <li>Optimize the WHERE clause since filtering happens early in the execution process.</li>
+               <li>Use WHERE instead of HAVING (if possible): WHERE gets executed before HAVING, so put filters in the WHERE clause for better efficiency.</li>
+               <li>Avoid filtering on HAVING (if possible): Reserve HAVING for filtering only aggregated data, as it's processed after GROUP BY.</li>
+               <li>BE SELECTIVE IN YOUR SELECT: Only SELECT the columns you need, as this can impact performance, Especially when dealing with very wide datasets.</li>
+               <li>Remove any unnecessary ORDER BY clauses.</li>
+            </ul>
+         </li>
+      </ul>
+
+      <h4>Techniques for Effective Data Cleaning</h4>
+      <ul>
+         <li>Replace NULL values with a default value or remove them based on the context: <code>SELECT COALESCE(column_name, 'DefaultValue') FROM table_name;</code></li>
+         <li>Identify and delete duplicate rows based on key columns using a CTE and <code>ROW_NUMBER()</code>.</li>
+         <li>Convert text to lower or upper case to ensure consistency: <code>SELECT LOWER(column_name) AS cleaned_column FROM table_name;</code></li>
+         <li>Remove extra spaces from text fields: <code>SELECT TRIM(column_name) FROM table_name;</code></li>
+         <li>Convert date strings into a consistent date format: <code>SELECT STR_TO_DATE(column_name, ‘%m/%d/%Y') FROM table_name;</code></li>
+         <li>Identify and manage outliers in numerical data using <code>BETWEEN lower_limit AND upper_limit</code>.</li>
+         <li>Replace or remove special characters in text fields: <code>SELECT REGEXP_REPLACE(column_name, '[^a-zA-Z0-9] ', '') AS cleaned_column FROM table_name;</code></li>
+         <li>Standardize values in categorical columns: <code>UPDATE table_name SET column_name = 'Male' WHERE column_name IN ('M', 'male') ;</code></li>
+         <li>Use statistical methods to fill in missing numerical data: <code>UPDATE table_name SET column_name = (SELECT AVG(column_name) FROM table_name) WHERE column_name IS NULL;</code></li>
+      </ul>
+
+      <h4>SQL Interview Questions</h4>
+      <ul class="two-column-list">
+         <li><strong>Basic Functions:</strong> Write a SQL query to find the number of companies that have posted duplicate job listings.</li>
+         <li><strong>Ratios:</strong> Write a SQL query to calculate the percentage of high frequency customers (more than 5 orders) for a specific month.</li>
+         <li><strong>Ranking:</strong> Write a SQL query to find the second highest salary in a department, considering ties.</li>
+         <li><strong>Window Functions:</strong> Write a query to calculate the 3 day rolling average of tweets for each user.</li>
+         <li><strong>Percentiles:</strong> Find the 80th percentile of hours studied from a scores table.</li>
+         <li><strong>Text Analysis:</strong> Identify the occurrences of specific words (e.g., bull and bear) within text content, excluding variations.</li>
+         <li><strong>Query Optimization:</strong> Given a slow-running query, identify the bottleneck and propose a fix (indexing, partition pruning, predicate pushdown, or rewriting subqueries as window functions).</li>
+         <li>Employee salary is greater than Manager’s salary (SELF JOIN)</li>
+         <li>2nd Highest or Nth Highest salary in each department (using CTE)</li>
+         <li>Difference between UNION and UNION ALL (scenario-based)</li>
+         <li>Find number of duplicate records in a table</li>
+         <li>How to remove duplicates from a table</li>
+         <li>How to calculate Year-over-Year (YoY) growth percentage</li>
+         <li>Employees who joined in the last N months</li>
+         <li>CROSS JOIN – expected output and use cases</li>
+         <li>Difference between DENSE_RANK, RANK, and ROW_NUMBER</li>
+         <li>Customers who haven’t made any sales</li>
+         <li>Results of different JOIN types (INNER, LEFT, RIGHT, FULL)</li>
+         <li>Stored Procedure use cases</li>
+         <li>Views – why we create them</li>
+      </ul>
+
+      <h2 id="data-warehouse">Data Warehouse</h2>
+      <ul>
+         <li>Difference between Surrogate Key and Natural Key (Important)</li>
+         <li>Different types of Slowly Changing Dimensions (SCD)</li>
+         <li>What is a Temporal Table?</li>
+         <li>What is a Factless Fact Table? Provide a use case</li>
+         <li>What is Granularity in a Data Warehouse?</li>
+      </ul>
+
+      <h2 id="power-bi">Power BI</h2>
+      <ul>
+         <li><strong>Data Modeling:</strong> Best practices to optimize data models in DirectQuery and Import modes; Detailed differences between DirectQuery and Import mode for large datasets; How to change filter direction without modifying the data model; Managing Dual Mode storage and reducing query load; Many-to-Many relationships: why they occur and how to fix them (end-to-end); Dynamic Row-Level Security (RLS) implementation and relationship management; Schema preference (Star vs Snowflake) based on requirements; Can a factless fact table act as a bridge table in many-to-many relationships?</li>
+         <li><strong>Power Query:</strong> Parameters use cases (especially switching data sources); Difference between Duplicate and Reference queries (with scenarios); How to push transformations back to the data source; Power Query vs Source-level transformations – when to use which; Column profiling and how it helps; Handling nulls and blanks; Reading and understanding M Code; Group By – why and when it is used.</li>
+         <li><strong>DAX:</strong> Difference between SUM and SUMX (row context vs filter context); Running Total with Date and without Date; YoY and Growth percentage calculations; RANKX use cases (including ranking two columns in a matrix); Handling limitations of DAX functions in DirectQuery mode; RELATED vs RELATEDTABLE; Optimizing slow DAX measures (performance tuning steps); DATESYTD vs TOTALYTD; VALUES vs ALL vs FILTER (use cases); TOP N customers – with DAX and without DAX; Moving Average use cases; SWITCH vs IF (differences with scenarios); SAMEPERIODLASTYEAR vs PARALLELPERIOD.</li>
+         <li><strong>Visuals:</strong> Field Parameters (important use cases); Bookmarks (use cases); Drill-throughs; Filter interactions among visuals; When to use which chart (Scatter plot, Waterfall chart); Best practices for formatting and visual count.</li>
+         <li><strong>Service:</strong> Dataflows – why and when to use them; Version control strategies for published reports; Deployment Pipelines; User access management and role assignments; Creating and managing Power BI Apps; Dynamic and automated data refresh strategies; Report security best practices; Power BI licensing overview; Awareness of latest Power BI updates (Important).</li>
+         <li><strong>Best Practices:</strong> Checklist before starting report development; Performance optimization techniques: Import Mode optimization strategies, DirectQuery Mode optimization strategies.</li>
+      </ul>
+
+      <h2 id="product-sense">Product Sense and Case Studies</h2>
+      <p>These questions test your ability to think critically about business problems and metrics.</p>
+      <ul>
+         <li><strong>Measuring Success:</strong>
+            <ul>
+               <li>YouTube introduces a 10 second video format. What metrics would you use to measure its success?</li>
+               <li>YouTube launches a live streaming feature. How would you measure its success?</li>
+               <li>Netflix releases a "Shuffle Play" button. How can you tell if it is driving engagement?</li>
+               <li>Airbnb introduces a loyalty program. How would you evaluate whether it is working?</li>
+               <li>This focuses on how to define the health or success of a new product or feature.</li>
+               <li><strong>Clarify Goals:</strong> Ask what the product does, who it is for, and what its primary goal is before suggesting metrics.</li>
+               <li><strong>The "Rule of Three":</strong> Aim to provide no more than three metrics: Two Success Metrics (To indicate effectiveness), One Guardrail Metric (A metric that should not degrade).</li>
+            </ul>
+         </li>
+         <li><strong>Product Ideation:</strong>
+            <ul>
+               <li>How would you improve user retention on Reddit?</li>
+               <li>How would you improve Google Calendar?</li>
+               <li>What new feature would you add to Duolingo to increase user motivation?</li>
+               <li>How can Spotify make music discovery more social?</li>
+            </ul>
+         </li>
+         <li><strong>Investigation (Metric Drops) & Diagnosing a Problem:</strong>
+            <ul>
+               <li>TikTok's user engagement dropped by 15 percent. How would you investigate this drop?</li>
+               <li>The number of active listings on eBay decreased by 8%. How do you diagnose?</li>
+               <li>Amazon's average cart abandonment rate has increased by 5%. How would you investigate?</li>
+               <li>The engagement rate on YouTube ads has decreased by 10%. What steps would you take?</li>
+               <li>We noticed a 15% drop in bookings on Booking.com. How would you investigate?</li>
+               <li>This category involves investigating why a metric (e.g., a 20% drop in Facebook group creation) has shifted negatively.</li>
+               <li><strong>Clarify:</strong> Define the scenario and the metric precisely (e.g., how is "ETA" calculated?).</li>
+               <li><strong>Time Aspect:</strong> Did the change happen suddenly or progressively?</li>
+               <li><strong>Internal vs. External Factors:</strong> Check for bugs/data issues (internal) vs. seasonality, competitors, or special events (external).</li>
+               <li><strong>Segmentation:</strong> Break down the data by region, platform (iOS/Android), or user demographics to isolate the cause.</li>
+               <li><strong>Decompose the Metric:</strong> Break the metric into its components (e.g., $DAU = Existing + New + Resurrected - Churned$) to find the specific driver.</li>
+            </ul>
+         </li>
+         <li><strong>Launch or Not:</strong>
+            <ul>
+               <li>This involves deciding whether to release a feature based on experimental results.</li>
+               <li><strong>Experiment Design:</strong> Explain how to split users into control/treatment groups and determine the duration of the test.</li>
+               <li><strong>Conflicting Results:</strong> If one metric goes up but another goes down, translate the trade-off into business impact.</li>
+               <li><strong>Long-term vs. Short-term:</strong> Consider if a short-term drawback (like a minor bounce rate increase) is worth the long-term benefit (user growth).</li>
+            </ul>
+         </li>
+      </ul>
+
+      <h2 id="ab-testing">A/B Testing and Experimentation</h2>
+      <p>This section covers the design and analysis of experiments.</p>
+      <ul>
+         <li><strong>Design and Strategy:</strong> How do you decide which features to A/B test? What factors would you consider when designing an A/B test? Let's say we are launching a new checkout button. How would you design an A/B test to evaluate its effectiveness?</li>
+         <li><strong>Analysis and Interpretation:</strong> How do you interpret the results of an A/B test? How do you decide whether to implement the results of an A/B test? What are some common mistakes in A/B testing, and how can they be avoided?</li>
+         <li>How do you decide what to A/B test?</li>
+         <li>Writing a hypothesis for an experiment.</li>
+         <li>Choosing primary and secondary metrics.</li>
+         <li>Sample size calculation basics.</li>
+         <li>Minimum detectable effect (MDE).</li>
+         <li>Randomization importance.</li>
+         <li>Statistical significance vs practical significance.</li>
+         <li>P-value and confidence intervals.</li>
+         <li>Multiple testing problem.</li>
+         <li>When should you stop an experiment?</li>
+         <li>How do you decide to ship experiment results?</li>
+         <li>Common A/B testing mistakes.</li>
+      </ul>
+
+      <hr>
+
+      <h2 id="ml-tips">ML Tips Subpage</h2>
+
+      <h4>General ML Tips</h4>
+      <ul>
+         <li>Understand the business problem, then frame it as an ML problem: Otherwise you will build a great ML model, that does not move the business metric it was intended to move.</li>
+         <li>What is the business metric we want to improve? It is crucial you talk with all relevant stakeholders at the beginning of the project. They have more business context than you and can help you understand what is the target you need to shoot at.</li>
+         <li>What is the baseline we need to beat? Is there any solution currently working to solve this, like some rule-based heuristics? If there is one, this is the benchmark you have to beat in order to have a business impact. If there is none, you can have a quick win by implementing a non-ML solution.</li>
+         <li>Will the model be used as a black box or as a tool to assist humans to make better decisions? Creating black-box solutions is easier than explainable ones. If you work in healthcare, for example, you need explain ability. If you work in algorithmic trading, you don’t.</li>
+         <li><em>2026 note:</em> With LLM-based products, this question now extends to explainability of generative outputs too — e.g. citing sources, showing retrieved context (RAG), or producing a confidence score, rather than just explaining a classifier's weights. [2026 UPDATE]</li>
+         <li>Focus on getting more and better data: In Kaggle competitions everyone gets the same data and competes purely on modeling. In reality, the opposite happens — the data, not the model, is usually the bottleneck.</li>
+         <li>Talk (a lot) with data engineering guys. They know where each bit of data lives, can help you fetch it, and can build pipelines for useful 3rd-party data.</li>
+         <li>Be fluent in SQL. SQL is the most universal way to access data — especially in less data-mature environments like startups. It lets you build training data quickly.</li>
+         <li>Structure your code well: Jupyter notebooks are great for quick prototyping, but they get crowded and unmanageable fast. Graduate experiments into proper modules/scripts once an idea proves out.</li>
+         <li><em>2026 reality check:</em> this matters even more now — interviewers and teams expect candidates to show production-ready repos (clean structure, tests, a README, not a single giant notebook) as evidence of real engineering ability. [2026 UPDATE]</li>
+      </ul>
+
+      <h4>By Boris Meinardus</h4>
+      <ul>
+         <li>Think about math the right way. Don’t just memorize formulas, but rather understand the ideas behind them. Formulas are just a way of expressing human ideas in a formal language. Once you understand this, you can break down complex derivations into a series of steps that you can follow. Learn to recognize when you can apply which rule.</li>
+         <li>Coding is all about debugging. Don’t be afraid to write code that doesn’t work at first. The important thing is to learn from your mistakes and keep trying.</li>
+         <li>Understand how to read large codebases. When you’re working on a new project, start by finding the train.py and eval.py files. These files will give you an overview of the codebase and how the different parts fit together.</li>
+         <li>Use minimal educational implementations to understand complex algorithms. These implementations are designed to be easy to understand, so they’re a great way to learn the basics of an algorithm before diving into the more complex, optimized code.</li>
+         <li>Mastering machine learning takes time and effort. There is no shortcut to success. According to an IBM 2022 study, 34% of organizations consider poor AI skills as the top reason blocking successful AI adoption. He notes it took him three and a half years to learn machine learning, and he failed his first machine learning interviews before succeeding.</li>
+      </ul>
+
+      <h4>By Elad Cohen (Hiring for Junior Positions)</h4>
+      <ul>
+         <li>Do you understand the fundamentals and theory of machine learning?</li>
+         <li>Do you have the necessary coding skills (usually Python or R)?</li>
+         <li>Can you demonstrate both of these points (e.g., walk the walk, not just talk the talk)?</li>
+         <li><em>2026 addition:</em> for junior roles specifically, companies are increasingly testing whether you can competently use AI coding assistants (Copilot, Claude, etc.) rather than just write code unaided — and whether you can critically review and debug AI-generated code. [2026 UPDATE]</li>
+      </ul>
+
+      <h4>By Meri Nova (Interview Components)</h4>
+      <ul>
+         <li><strong>The Coding Interview:</strong> Prepare for Data Structures (Arrays, linked lists, stacks, queues, trees, heaps, hash tables, and graphs), Algorithms (BFS, DFS, Recursion, Sorting algorithms), and Big O Notation.</li>
+         <li><strong>ML Fundamentals:</strong> Prepare for Core ML Concepts (Supervised vs unsupervised learning, Overfitting vs underfitting, Bias-variance tradeoff, Regularization techniques, Evaluation metrics), Algorithms (Random forests, Gradient boosting, SVMs, K-means, PCA), and Deep Learning (NN, Activation functions, Backpropagation, CNNs, RNNs, LSTM, Transformers).</li>
+         <li><em>2026 note:</em> classical ML is not optional just because GenAI is trendy. Several 2026 interview guides specifically warn candidates not to neglect it — a good engineer still knows when a Random Forest beats an expensive, latency-heavy LLM call. [2026 UPDATE]</li>
+         <li><strong>System Design (ML):</strong> Prepare for Designing an End-to-End ML Pipeline (From data ingestion to model deployment), and Scalability & Trade-offs (Latency vs throughput, How to handle large datasets, Distributed training, Serving models at scale).</li>
+         <li><strong>Behavioral Interview:</strong> Prepare for Sharing Your Impact Story using the STAR method.</li>
+         <li><em>2026 emphasis:</em> be ready to discuss cross-functional alignment, handling ambiguity, and how you decide when not to reach for an LLM-based solution — interviewers are explicitly probing for engineers who think in production trade-offs, not just algorithm trivia. [2026 UPDATE]</li>
+         <li><strong>Research/Math Interview:</strong> Prepare for Linear Algebra (Matrix operations, Eigenvalues and eigenvectors, SVD), Probability and Statistics (Bayes’ theorem, Probability distributions, Hypothesis testing, Confidence intervals), and Optimization (Gradient descent, SGD, Convex optimization). Also prepare for Advanced Topics like Reinforcement learning, Generative models, and Advanced neural architectures.</li>
+         <li><em>2026 addition:</em> foundation-model internals are now fair game even outside pure research roles — KV cache, grouped-query attention (GQA), RoPE, mixture-of-experts (MoE), and post-training methods like SFT, DPO, and RLHF/RLVR. [2026 UPDATE]</li>
+      </ul>
+
+      <h4>What's Changed Going Into 2026</h4>
+      <ul>
+         <li>Classical ML + GenAI, not classical ML or GenAI. The market wants engineers who can choose the right tool — sometimes that's a Random Forest, sometimes an LLM with RAG — and explain the cost/latency trade-off either way.</li>
+         <li>Production fluency is the differentiator. Multiple 2026 guides note that candidates increasingly fail not from lacking textbook knowledge, but from being unable to explain a real production failure end-to-end, or what a design choice costs in production.</li>
+         <li>Demand for AI/ML engineers is way up. Industry analysts have flagged AI/ML engineering as one of the most in-demand technical roles for 2026, with a large share of the engineering workforce expected to need GenAI upskilling.</li>
+         <li>AI-augmented hiring is now common. Expect AI-assisted technical assessments, and be ready to demonstrate that you can effectively and critically use AI tools — not just that you can avoid them.</li>
+         <li>Cloud and MLOps tooling fluency is assumed, not a bonus. AWS/Azure/GCP plus at least one of MLflow/Kubeflow/SageMaker Pipelines now shows up as a baseline expectation, not a nice-to-have.</li>
+      </ul>
+
+      <h4>A Few Concrete Things to Add to Your Study Plan</h4>
+      <ul>
+         <li>Build (or polish) one end-to-end project that includes deployment and monitoring — not just a model in a notebook. This is consistently cited as the single best differentiator.</li>
+         <li>Pick one vector database and one orchestration framework (e.g. pgvector + LangChain, or Pinecone + LlamaIndex) and get hands-on — be able to explain the design choices, not just name-drop them.</li>
+         <li>Practice explaining a real production failure or trade-off you've encountered, end-to-end, in plain language.</li>
+         <li>Don't drop classical ML fundamentals from your prep just because LLM questions are trendy — they're both being tested.</li>
+      </ul>
+
+   </body>
+</html>

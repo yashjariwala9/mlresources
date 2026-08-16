@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Comprehensive Data & ML Resources</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <style>
+         :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #242424;
+            --text-primary: #e5e5e5;
+            --text-secondary: #b0b0b0;
+            --text-accent: #4fc3f7;
+            --border-color: #333;
+            --link-color: #4fc3f7;
+            --link-visited: #81c784;
+            --code-bg: #2d2d2d;
+            --table-border: #444;
+         }
+         
+         * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+         }
+         
+         body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            background-attachment: fixed;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+         }
+
+         .toc {
+            background: var(--bg-tertiary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-color);
+         }
+
+         .toc h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: var(--text-accent);
+         }
+
+         .toc ul {
+            columns: 2;
+            column-gap: 2rem;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+         }
+
+         .toc li {
+            margin-bottom: 0.5rem;
+         }
+
+         h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+         }
+         
+         h1 { font-size: 2.2rem; font-weight: 700; text-align: center; margin-bottom: 2rem; }
+         h2 { font-size: 1.8rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; padding-top: 1rem;}
+         h3 { font-size: 1.4rem; color: var(--text-accent); margin-top: 2rem;}
+         h4 { font-size: 1.1rem; color: #fff; margin-top: 1.5rem; }
+         
+         hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 2.5rem 0;
+         }
+         
+         a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid transparent;
+            word-break: break-word;
+         }
+         
+         a:hover {
+            color: var(--text-accent);
+            border-bottom-color: var(--link-color);
+            text-shadow: 0 0 8px rgba(79, 195, 247, 0.3);
+         }
+         
+         a:visited { color: var(--link-visited); }
+         
+         p, li {
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+         }
+         
+         ol, ul {
+            padding-left: 1.8rem;
+            margin-bottom: 1.5rem;
+         }
+
+         ol li::marker, ul li::marker {
+            color: var(--text-secondary);
+         }
+
+         .two-column-list {
+            columns: 2;
+            column-gap: 3rem;
+         }
+
+         .two-column-list li {
+            break-inside: avoid-column;
+         }
+
+         .three-column-list {
+            columns: 3;
+            column-gap: 2rem;
+         }
+
+         .three-column-list li {
+            break-inside: avoid-column;
+         }
+         
+         pre, code {
+            font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            background: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+         }
+         
+         ::-webkit-scrollbar { width: 8px; }
+         ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+         ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+         ::-webkit-scrollbar-thumb:hover { background: var(--link-color); }
+         
+         @media (max-width: 768px) {
+            body { padding: 1.5rem 1rem; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
+            .two-column-list, .three-column-list, .toc ul { columns: 1; }
+         }
+
+	
+	.nav-bar {
+            background: var(--bg-tertiary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+         }
+         
+         .nav-bar a {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+         }
+         
+         .nav-bar a.active {
+            color: var(--text-accent);
+            border-bottom: 2px solid var(--text-accent);
+         }
+      </style>
+   </head>
+   <body>
+	<!-- NAVIGATION BAR -->
+      <nav class="nav-bar">
+         <a href="index.html" class="active">Resources</a>
+         <a href="guide.html">Interview Guide</a>
+      </nav>
+      <h1>Ultimate Data & ML Resources</h1>
+
+      <!-- Table of Contents -->
+      <div class="toc">
+         <h3>Table of Contents</h3>
+         <ul>
+            <li><a href="#roadmaps">Roadmaps & Other Resources</a></li>
+            <li><a href="#machine-learning">Machine Learning</a></li>
+            <li><a href="#deep-learning">Deep Learning</a></li>
+            <li><a href="#mlops">MLOps</a></li>
+            <li><a href="#sql">SQL</a></li>
+            <li><a href="#powerbi">Power BI & Visualization</a></li>
+            <li><a href="#maths">Mathematics & Statistics</a></li>
+            <li><a href="#supporting">Supporting Courses & Books</a></li>
+            <li><a href="#courses">Courses & Platforms</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="#interviews-jobs">Interviews & Jobs</a></li>
+         </ul>
+      </div>
+
+      <h2 id="roadmaps">Roadmaps, Domain Knowledge & Other Resources</h2>
+      <ol class="two-column-list">
+         <li><a href="https://rentry.org/machine-learning-roadmap">Machine Learning Roadmap (Rentry)</a></li>
+         <li><a href="https://aigents.co/learn/roadmaps/intro">Aigents AI Roadmaps</a></li>
+         <li><a href="https://datanerd.tech/">DataNerd.tech</a></li>
+         <li><a href="https://roadmap.sh/roadmaps">Roadmap.sh (Developer & Data Roadmaps)</a></li>
+         <li><a href="https://www.microsoft.com/en-us/customers/search?sq=&ff=&p=0&so=story_publish_date+desc">Microsoft Customer Stories (Domain Knowledge)</a></li>
+         <li><a href="https://youtu.be/ZjrUmNq41Eo?si=PBXu1E9IitfYvH00">Data Analytics Portfolio Project (YouTube)</a></li>
+         <li><a href="https://codebasics.io/resources?search=&categories%5B%5D=7">Codebasics Data Resources</a></li>
+         <li><a href="https://codebasics.io/challenge/codebasics-resume-project-challenge">Codebasics Resume Project Challenge</a></li>
+         <li><a href="https://www.youtube.com/@learnwidgiggs/playlists">Learn with Giggs (YouTube Playlists)</a></li>
+         <li><a href="https://www.youtube.com/live/6FfJy66-sHw?si=MeIiOWQ_NdSwTV20&t=4428">Data Career Live Stream Guide</a></li>
+         <li><a href="https://www.novypro.com/">NovyPro BI Portfolio</a></li>
+         <li><a href="https://datachant.com/category/power-bi/">DataChant Power BI</a></li>
+         <li><a href="https://community.fabric.microsoft.com/t5/Data-Stories-Gallery/bd-p/DataStoriesGallery">Microsoft Fabric Data Stories Gallery</a></li>
+         <li><a href="https://www.biwiseanalytics.com/portfolio">BiWise Analytics Portfolio</a></li>
+         <li><a href="https://enterprisedna.co/">Enterprise DNA Resources</a></li>
+      </ol>
+
+      <h2 id="machine-learning">Machine Learning</h2>
+      <ol class="two-column-list">
+         <li><a href="https://youtube.com/playlist?list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal&si=Ilsi5AsqYEdBDC19">ML Recipes with Josh Gordon</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLnvKubj2-I2LhIibS8TOGC42xsD3-liux&si=mNOEIgtvOygAbLlX">ML Course MIT OpenCourseWare by drtuantqksu</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLIg1dOXc_acbdJo-AE5RXpIM_rvwrerwR&si=vxCkmLjIMGBkYkoP">Intro to ML by Sudeshna Sarkar</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLyqSpQzTE6M-SISTunGRBRiZk7opYBf_K&si=2cTX7x12g5GYbqTT">ML for Engineering and Science Applications by NPTEL-NOC IITM</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU&si=bJG2cx_YWSNVLk6n">Stanford CS229: Machine Learning Full Course by Andrew Ng</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLoROMvodv4rNyWOpJg_Yh4NSqI4Z4vOYy&si=UZ-gwa3_7G0TZFs7">Stanford CS229: ML I Spring 2022 by Stanford Online</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLQVvvaa0QuDfKTOs3Keq_kaG2P55YRn5v&si=o4ZqCJKkcDIAAVDM">ML with Python by sentdex</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL2UML_KCiC0UlY7iCQDSiGDMovaupqc83&si=S_rLZFxLcJcwQ8le">Applied ML (Cornell Tech CS 5787, Fall 2020) by Volodymyr Kuleshov</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLRKtJ4IpxJpDxl0NTvNYQWKCYzHNuy2xG&si=swnKkY54QNrMsaPZ">Making Friends with ML by Cassie Kozyrkov</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLkDaE6sCZn6FNC6YRfRQc_FbeQrF8BwGI&si=Jon8PuzFSf5JQ2pf">ML Specialization by Andrew Ng</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLblh5JKOoLUIcdlgu78MnlATeyx4cEVeR&si=UqBlyPCnFEy8NTAi">ML Fundamentals by StatQuest</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLKnIA16_Rmvbr7zKYQuBfsVkjoLcJgxHH&si=RiJ8cjfn3LH4pcRI">100 days of ML by CampusX</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLZoTAELRMXVPMbdMTjwolBI0cJcvASePD&si=InDkNsht0IPLDumx">ML 2024 by Krish Naik</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLhQjrBD2T381WAHyx1pq-sBfykqMBI7V4&si=rUp3X6LTzCHrpmuI">CS50x 2024 Lectures</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLMrJAkhIeNNSVjnsviglFoY2nXildDCcv&si=Btwv9drlSDTv1NZz">singular value decomposition (SVD) by Steve Brunton</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLeo1K3hjS3us_ELKYSj_Fth2tIEkdKXvV&si=L8K9pHGniB33T4Z6">DS full course by codebasics</a></li>
+         <li><a href="https://youtu.be/9vM4p9NN0Ts?si=7gHImwZ070XEFgkz">Stanford CS229 ML Building LLMs</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ&si=IdZrYy9qsjBQRtAA">Statistical Learning with Python</a></li>
+         <li><a href="https://people.eecs.berkeley.edu/~russell/">Stuart Russell (UC Berkeley)</a></li>
+         <li><a href="https://www.statslab.cam.ac.uk/~rds37/machine_learning.html">Cambridge Machine Learning Lab</a></li>
+         <li><a href="https://ig.ft.com/generative-ai/">Generative AI Guide (FT)</a></li>
+         <li><a href="https://aima.cs.berkeley.edu/">Artificial Intelligence: A Modern Approach</a></li>
+         <li><a href="https://www.kaggle.com/learn">Kaggle Learn</a></li>
+         <li><a href="https://www.nicolai-nielsen.com/nncode">Nicolai Nielsen NN Code</a></li>
+         <li><a href="https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/">Understanding Machine Learning</a></li>
+         <li><a href="https://mlu-explain.github.io/">MLU-Explain (Visual ML)</a></li>
+         <li><a href="https://lilianweng.github.io/">Lilian Weng's Lil'Log</a></li>
+         <li><a href="https://arcprize.org/">ARC Prize</a></li>
+         <li><a href="https://www.lesswrong.com/">LessWrong</a></li>
+         <li><a href="https://www.deep-ml.com/">Deep-ML</a></li>
+         <li><a href="https://www.kaggle.com/code/ammaraahmad/machine-learning-essentials">Machine Learning Essentials (Kaggle)</a></li>
+         <li><a href="https://bbycroft.net/llm">LLM Visualization (Bbycroft)</a></li>
+      </ol>
+
+      <h2 id="deep-learning">Deep Learning</h2>
+      <ol class="two-column-list">
+         <li><a href="https://youtube.com/playlist?list=PLyqSpQzTE6M9gCgajvQbc68Hk_JKGBAYT&si=P2qegqbFedZQ1mNs">DL by NPTEL-NOC IITM</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&si=FDdSi4ErkJZr1baM">Neural Networks: Zero to Hero by Andrej Karpathy</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&si=m_HRnBhTtzqQx7MP">Neural networks by 3Blue1Brown</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLblh5JKOoLUIxGDQs4LFFD--41Vzf-ME1&si=ooj4WZBT_LKq3xMt">Neural Networks / DL by StatQuest with Josh Starmer</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI&si=wLnQmEKegM-1rXBo">MIT 6.S191: Intro to DL by Alexander Amini</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL1T8fO7ArWleMMI8KPJ_5D5XSlovTW_Ur&si=wXhuJx3fzEOS2ZBG">Full Stack DL 2022 by Full Stack</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL1T8fO7ArWleyIqOy37OVXsP4hFXymdOZ&si=HSO0RDFf3ernYjTv">LLM Bootcamp - Spring 2023 by Full Stack</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL2L83ZcMO-5O7zNycUkS5WLgr33J3QxMK&si=aNCL6HP5s5GHkzmQ">Full Stack Practical DL with TensorFlow 2, HuggingFace, WandB and KubeFlow by Neuralearn</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL_Z2_U9MIJdNgFM7-f2fZ9ZxjVRP_jhJv&si=C5tLM_NuGf0nR4Tr">DL for Computer Vision (DL4CV)@WIS, Spring 2021 by Tali Dekel</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r&si=MfXiuDAdOcpR0m21">DL for Computer Vision by Michigan Online</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&si=Px0Rf4geALocTDdT">Convolutional Neural Networks for Visual Recognition by Stanford University School of Engineering</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLQVvvaa0QuDcjD5BAw2DxE6OF2tius3V3&si=V-m69VJu_sMdmAMC">Neural Networks from Scratch in Python by sentdex</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL8PYTP1V4I8D0UkqW2fEhgLrnlDW9QK7z&si=FotxHxxGJ12yjeCE">CMU Advanced NLP 2022 by Graham Neubig</a></li>
+         <li><a href="https://youtu.be/WgPbbWmnXJ8?si=wz4zPv53gJ3kB4YK">Object Detection 101 Course | CV by murtazasworkshop</a></li>
+         <li><a href="https://youtu.be/-UjytpbqX4A?si=sB74Lk4hpD95sfT4">Graph Neural Networks (GNN) using Pytorch Geometric by Stanford University</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLoROMvodv4rNiJRchCzutFw5ItR_Z27CM&si=pJFH2egOYMg4orRe">Stanford CS25 - Transformers United</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLoROMvodv4rOSH4v6133s9LFPRHjEmbmJ&si=oDDVtTi44K7R8qaP">Stanford CS224N: Natural Language Processing with DL</a></li>
+         <li><a href="https://youtu.be/vw-KWfKwvTQ?list=PLZZOMOsXweJRxulFyf1OmC1dbuviHamc0">GPT-4 - How does it work, and how do I build apps with it? by CS50</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLnSYPjg2dHQKdig0vVbN-ZnEU0yNJ1mo5&si=ErkZCx3XawnZnyWz">Data-Centric AI vs. Model-Centric AI</a></li>
+      </ol>
+
+      <h2 id="mlops">MLOps</h2>
+      <ol>
+         <li><a href="https://youtube.com/playlist?list=PLkDaE6sCZn6GMoA0wbpJLi3t34Gd8l0aK&si=dncukbt-PJH3YLGF">Machine Learning Engineering for Production (MLOps) Specialization</a></li>
+         <li><a href="https://youtu.be/Kvxaj6pHeVA">End-to-End MLOps Pipeline Tutorial</a></li>
+         <li><a href="https://mlflow.org/docs/latest/ml/tracking/quickstart/notebooks/tracking_quickstart/">MLflow Tracking Quickstart</a></li>
+         <li><a href="https://youtu.be/6wWdNg0GMV4">Introduction to MLOps Frameworks</a></li>
+      </ol>
+
+      <h2 id="sql">SQL & Databases</h2>
+      <ol>
+         <li><a href="https://datalemur.com/questions?category=SQL">DataLemur: SQL Interview Questions</a></li>
+         <li><a href="https://platform.stratascratch.com/coding?code_type=1&order_field=difficulty&difficulties=1&job_positions=2&job_positions=3&job_positions=4">StrataScratch SQL Coding Practice</a></li>
+         <li><a href="https://mode.com/sql-tutorial">Mode SQL Tutorial</a></li>
+         <li><a href="https://sqlzoo.net/wiki/SELECT_basics">SQLZoo Interactive Tutorial</a></li>
+         <li><a href="https://sqlbolt.com/">SQLBolt</a></li>
+         <li><a href="https://leetcode.com/studyplan/top-sql-50/">LeetCode: Top SQL 50 Study Plan</a></li>
+      </ol>
+      
+      <h4>LeetCode SQL Topics (Practice Links)</h4>
+      <ul>
+         <li><strong>1. Data Retrieval:</strong> <a href="https://leetcode.com/problems/second-highest-salary/description/">Second Highest Salary</a> | <a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/description/">Managers</a> | <a href="https://leetcode.com/problems/rising-temperature/description/">Rising Temp</a> | <a href="https://leetcode.com/problems/customers-who-never-order/description/">Customers</a></li>
+         <li><strong>2. Aggregations:</strong> <a href="https://leetcode.com/problems/product-sales-analysis-i/description/">Product Sales</a> | <a href="https://leetcode.com/problems/average-selling-price/description/">Avg Price</a> | <a href="https://leetcode.com/problems/sales-analysis-i/description/">Sales I</a> | <a href="https://leetcode.com/problems/department-highest-salary/description/">Dept Salary</a> | <a href="https://leetcode.com/problems/recyclable-and-low-fat-products/description/">Low Fat</a></li>
+         <li><strong>3. Joins:</strong> <a href="https://leetcode.com/problems/combine-two-tables/description/">Combine Tables</a> | <a href="https://leetcode.com/problems/customers-who-never-order/description/">Customers (Join)</a> | <a href="https://leetcode.com/problems/rank-scores/description/">Rank Scores</a> | <a href="https://leetcode.com/problems/delete-duplicate-emails/description/">Duplicate Emails</a></li>
+         <li><strong>4. Subqueries/CTEs:</strong> <a href="https://leetcode.com/problems/nth-highest-salary/description/">Nth Salary</a> | <a href="https://leetcode.com/problems/customer-placing-the-largest-number-of-orders/description/">Max Orders</a> | <a href="https://leetcode.com/problems/employee-bonus/description/">Bonus</a></li>
+         <li><strong>5. Window Functions:</strong> <a href="https://leetcode.com/problems/rank-scores/description/">Rank Scores (Window)</a> | <a href="https://leetcode.com/problems/consecutive-available-seats/description/">Available Seats</a> | <a href="https://leetcode.com/problems/game-play-analysis-iv/description/">Game Play IV</a> | <a href="https://leetcode.com/problems/game-play-analysis-iii/description/">Game Play III</a> | <a href="https://leetcode.com/problems/recyclable-and-low-fat-products/description/">Low Fat (Window)</a></li>
+         <li><strong>6. Filtering/Cleaning:</strong> <a href="https://leetcode.com/problems/delete-duplicate-emails/description/">Delete Duplicates</a> | <a href="https://leetcode.com/problems/sales-analysis-iii/description/">Sales Analysis III</a> | <a href="https://leetcode.com/problems/sales-analysis-ii/description/">Sales Analysis II</a> | <a href="https://leetcode.com/problems/employee-bonus/description/">Bonus (Filter)</a></li>
+      </ul>
+
+      <h2 id="powerbi">Power BI & Data Visualization</h2>
+      <ol>
+         <li><a href="https://www.youtube.com/@HowtoPowerBI">How to Power BI (YouTube)</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLRfaJ7ZL0cF7f6EQL-mGk63ElvpWzs2z-&si=7UWzB8A8HWt81zv-">Power BI Beginner to Pro Series (YouTube)</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLk-s1KYuT-PmgxTJKTcXwvxBgMb7rUnza&si=C2kh1qkvHCrhF6gq">Power BI Advanced Playlist</a></li>
+      </ol>
+
+      <h2 id="maths">Mathematics & Statistics</h2>
+      <h3>Foundational & Interactive</h3>
+      <ol class="two-column-list">
+         <li><a href="https://youtube.com/playlist?list=PLpyc33gOcbVA4qXMoQ5vmhefTruk5t9lt&si=mMew9S2Sh5ljrKrh">Quantitative Aptitude Tutorials by CareerRide</a></li>
+         <li><a href="https://aman.ai/primers/math/">Aman.ai Math Primer</a></li>
+         <li><a href="https://aman.ai/primers/ai/RAG/">Aman.ai RAG Concepts</a></li>
+         <li><a href="https://www.wolframalpha.com/">WolframAlpha</a></li>
+         <li><a href="https://www.geogebra.org/calculator">GeoGebra Calculator</a></li>
+         <li><a href="https://www.mathsisfun.com/data/probability.html">Probability by MathsIsFun</a></li>
+         <li><a href="https://betterexplained.com/articles/linear-algebra-guide/">BetterExplained Linear Algebra Guide</a></li>
+         <li><a href="https://www.gauthmath.com/">Gauthmath</a></li>
+         <li><a href="https://xaktly.com/XMathMain.html">Xaktly Math & Physics Portal</a></li>
+         <li><a href="https://seeing-theory.brown.edu/">Seeing Theory (Visual Intro to Probability)</a></li>
+         <li><a href="https://gamemath.com/">3D Math Primer for Game Development</a></li>
+      </ol>
+
+      <h3>Linear Algebra & Calculus</h3>
+      <ol>
+         <li><a href="https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&si=OhnoZLwKBZLrrPd4">Linear Algebra by 3Blue1Brown</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL221E2BBF13BECF6C&si=M30TibFEqnmtirpl">Linear Algebra by Gilbert Strang (MIT)</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLRDl2inPrWQW1QSWhBU0ki-jq_uElkh2a&si=S8__qGKGZ4hmq4IB">Linear Algebra for ML by John Krohn</a></li>
+         <li><a href="https://www.khanacademy.org/math/linear-algebra">Linear Algebra by Khan Academy</a></li>
+         <li><a href="https://youtu.be/zPgfIOWVnF4?si=HPMrmTalrcSiyUNG">Linear Algebra 1&2 by Derek Banas</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr&si=06qjm3rqNeWmrlWG">Calculus by 3Blue1Brown</a></li>
+      </ol>
+
+      <h3>Statistics & Probability</h3>
+      <ol class="two-column-list">
+         <li><a href="https://youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9&si=A4SV3ghvmkZSSBu5">Statistics Fundamentals by StatQuest (Playlist 1)</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo&si=N3nZDx9NoMZWAeN4">Statistics 110: Probability by Harvard University</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLoROMvodv4rOpr_A7B9SriE_iZmkanvUg&si=aFytAXi_Dl0Neumf">Stanford CS109 Intro to Probability</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLoROMvodv4rMJqxxviPa4AmDClvcbHi6h&si=4nWPM28XRrvXdykG">Stanford EE364A Convex Optimization I 2023</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL0o_zxa4K1BVsziIRdfv4Hl4UIqDZhXWV&si=K0au3Xbw0QKeleNw">Statistics by The Organic Chemistry Tutor (Playlist 1)</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL8dPuuaLjXtNM_Y-bUAhblSAdWRnmBUcr&si=GBrJjGQR8pxhaltg">Statistics by CrashCourse (Playlist 1)</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLOg0ngHtcqbPTlZzRHA2ocQZqB1D_qZ5V&si=pSDgXg9mI3UwQh70">Statistical Learning by Stanford</a></li>
+         <li><a href="https://www.coursera.org/learn/stanford-statistics#about">Introduction to Statistics by Stanford (Coursera)</a></li>
+      </ol>
+
+      <h2 id="supporting">Supporting Courses & Books</h2>
+      <h3>Courses</h3>
+      <ol>
+         <li><a href="https://youtube.com/playlist?list=PLJicmE8fK0EgI__8e2HP-EZDJuvIF3RsT&si=HiuRs7VvfuoIg7aV">Visualizing Data by TED-Ed</a></li>
+         <li><a href="https://youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V&si=-x8M6m64Rj7EuAlT">Nonlinear Dynamics and Chaos - Steven Strogatz, Cornell University</a></li>
+         <li><a href="https://youtube.com/playlist?list=PL8ED50412A17D4C8B&si=5PgCRNuTaGfcFb8F">Programming Paradigms (CS 107) by Stanford Prof. Jerry Cain</a></li>
+      </ol>
+      
+      <h3>Books</h3>
+      <ol class="two-column-list">
+         <li><a href="https://github.com/ageron/handson-ml3">Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow</a></li>
+         <li><a href="https://www.amazon.in/Programming-PyTorch-Deep-Learning-Pointer/dp/1492045357">Programming PyTorch for Deep Learning</a></li>
+         <li><a href="https://www.amazon.in/Probability-Statistics-Engineering-William-Hines/dp/8126516461">Probability and Statistics in Engineering</a></li>
+         <li><a href="https://teachmint.storage.googleapis.com/public/institute/members/fe8e57c9-6ca2-4ff0-93ee-a186b6fb3f5a.pdf">Play With Graphs (PDF)</a></li>
+         <li><a href="https://wesmckinney.com/book/">Python for Data Analysis</a></li>
+         <li><a href="https://mml-book.github.io/book/mml-book.pdf">Mathematics for ML (PDF)</a></li>
+         <li><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf">Pattern Recognition & ML (PDF)</a></li>
+         <li><a href="http://neuralnetworksanddeeplearning.com/">Neural Networks & Deep Learning</a></li>
+         <li><a href="https://www.statlearning.com/">Intro To Statistical Learning</a></li>
+      </ol>
+
+      <h2 id="courses">Courses & Platforms</h2>
+      <ol class="two-column-list">
+         <li><a href="https://developers.google.com/machine-learning">Google ML Education</a></li>
+         <li><a href="https://skillbuilder.aws/products#machine-learning">Amazon ML</a></li>
+         <li><a href="https://www.kaggle.com/learn">Kaggle</a></li>
+         <li><a href="https://www.deeplearning.ai/">DeepLearning AI</a></li>
+         <li><a href="https://www.3blue1brown.com/#lessons">3Blue1Brown</a></li>
+         <li><a href="https://www.cloudskillsboost.google/catalog">Google All Courses (Catalog)</a></li>
+         <li><a href="https://www.cloudskillsboost.google/">Google Cloud Skills Boost</a></li>
+         <li><a href="https://cs229.stanford.edu/">CS229ML (Stanford)</a></li>
+         <li><a href="https://aman.ai/">Aman AI</a></li>
+         <li><a href="https://d2l.ai/chapter_introduction/index.html">Dive into Deep Learning (D2L)</a></li>
+         <li><a href="https://huggingface.co/learn/llm-course/chapter1/1">Hugging Face LLM Course</a></li>
+         <li><a href="https://www.computervision.zone/">Computer Vision Zone</a></li>
+         <li><a href="https://ai.google/">Google AI</a></li>
+         <li><a href="https://pages.cs.wisc.edu/~dpage/cs760/">Wisconsin CS760 ML (Page)</a></li>
+         <li><a href="https://pages.cs.wisc.edu/~fredsala/cs760/fall2021/schedule.html">Wisconsin CS760 ML (Sala)</a></li>
+         <li><a href="https://ocw.mit.edu/courses/6-867-machine-learning-fall-2006/download/">MIT 6.867 Machine Learning</a></li>
+         <li><a href="https://www.fast.ai/">Fast AI Courses</a></li>
+         <li><a href="https://mlcourse.ai/book/index.html">mlcourse.ai (Open Machine Learning Course)</a></li>
+         <li><a href="https://research.google/">Google Research</a></li>
+         <li><a href="https://ocw.mit.edu/search/">MIT OpenCourseWare Search</a></li>
+      </ol>
+
+      <h2 id="blogs">Engineering & Tech Blogs</h2>
+      <ul class="two-column-list">
+         <li><a href="https://www.fast.ai/">Fast AI Blog</a></li>
+         <li><a href="https://betterexplained.com/archives/">Better Explained</a></li>
+         <li><a href="https://towardsdatascience.com/">Towards Data Science</a></li>
+         <li><a href="https://www.analyticsvidhya.com/blog/">Analytics Vidhya</a></li>
+         <li><a href="https://ig.ft.com/generative-ai/">Generative AI Guide (FT)</a></li>
+         <li><a href="https://pair.withgoogle.com/explorables/">AI Explorables | PAIR</a></li>
+         <li><a href="https://machinelearningmastery.com/">ML Mastery</a></li>
+         <li><a href="https://today.bnomial.com/">ML Interview Questions (Bnomial)</a></li>
+         <li><a href="https://www.databricks.com/blog/category/engineering">Databricks Engineering</a></li>
+         <li><a href="https://research.google/blog/">Google Research Blog</a></li>
+         <li><a href="https://developer.nvidia.com/blog/">NVIDIA Developer Blog</a></li>
+         <li><a href="https://medium.com/airbnb-engineering/subpage/ai">Airbnb AI Engineering</a></li>
+         <li><a href="https://machinelearning.apple.com/">Apple Machine Learning</a></li>
+         <li><a href="https://stripe.com/en-mx/guides/primer-on-machine-learning-for-fraud-protection">Stripe ML Guide</a></li>
+         <li><a href="https://netflixtechblog.medium.com/recsysops-best-practices-for-operating-a-large-scale-recommender-system-95bbe195a841">Netflix TechBlog (RecSys)</a></li>
+         <li><a href="https://www.uber.com/en-IN/blog/ahmedabad/engineering/?uclick_id=f9e883cb-ac6e-43ca-a7a7-1ac0e24e9234">Uber Engineering</a></li>
+         <li><a href="https://blog.x.com/engineering/en_us/tags.eng--machine-learning">X (Twitter) ML Engineering</a></li>
+         <li><a href="https://medium.com/pinterest-engineering/advertiser-recommendation-systems-at-pinterest-ccb255fbde20">Pinterest Engineering</a></li>
+         <li><a href="https://ai.meta.com/blog/">Meta AI Blog</a></li>
+         <li><a href="https://careersatdoordash.com/engineering-blog/">DoorDash Engineering</a></li>
+         <li><a href="https://www.mongodb.com/company/blog/channel/artificial-intelligence">MongoDB AI Blog</a></li>
+         <li><a href="https://aws.amazon.com/blogs/machine-learning/">AWS Machine Learning Blog</a></li>
+         <li><a href="https://engineering.atspotify.com/category/maching-learning">Spotify ML Engineering</a></li>
+         <li><a href="https://www.grammarly.com/blog/engineering/category/nlp-ml/">Grammarly NLP/ML Blog</a></li>
+         <li><a href="https://www.sqlbi.com/">SQLBI</a></li>
+         <li><a href="https://datasciencedojo.com/blog/">Data Science Dojo Blog</a></li>
+      </ul>
+
+      <h2 id="interviews-jobs">Interviews, Job Boards & Preparation</h2>
+      <h3>Interview Tips</h3>
+      <ol>
+         <li><a href="https://www.google.com/about/careers/applications/interview-tips/">Google Interview Tips</a></li>
+         <li><a href="https://www.apple.com/careers/us/interview_tips.html">Apple Interview Tips</a></li>
+         <li><a href="https://www.lifeatspotify.com/how-we-hire/interview">Spotify Interview Process</a></li>
+         <li><a href="https://careers.salesforce.com/en/life-at-salesforce/interview-process/">Salesforce Interview Process</a></li>
+         <li><a href="https://jobs.uber.com/en/what-moves-us/how-we-hire/">Uber Hiring Process</a></li>
+         <li><a href="https://chromewebstore.google.com/detail/ai-interviewer-mir-by-mir/dlanhacghegnnloapoliciamiiabbepo?hl=en-US&ref=producthunt">AI Interviewer MIR Chrome Extension</a></li>
+         <li><a href="https://luutruvn.com/wp-content/uploads/2025/03/Storytelling-with-Data_-A-Data-Visualization-Guide-for-Business-Professionals-PDFDrive-.pdf">Storytelling with Data (PDF)</a></li>
+      </ol>
+
+      <h3>Jobs & Career Portals</h3>
+      <ul class="three-column-list">
+         <li><a href="https://remotive.com/">Remotive</a></li>
+         <li><a href="https://www.levels.fyi/">Levels.fyi</a></li>
+         <li><a href="https://simplify.jobs/">Simplify.jobs</a></li>
+         <li><a href="https://weworkremotely.com/">We Work Remotely</a></li>
+         <li><a href="https://justremote.co/">JustRemote</a></li>
+         <li><a href="https://github.com/SimplifyJobs/Summer2024-Internships">GitHub Internships Tracker</a></li>
+         <li><a href="https://herkey.com/">Herkey</a></li>
+         <li><a href="https://wellfound.com/">Wellfound (AngelList)</a></li>
+         <li><a href="https://resume.io/">Resume.io</a></li>
+         <li><a href="https://www.themuse.com/">The Muse</a></li>
+         <li><a href="https://techcrunch.com/">TechCrunch</a></li>
+         <li><a href="https://www.piecex.com/">PieceX</a></li>
+         <li><a href="https://app.rezi.ai/dashboard/resumes">Rezi.ai</a></li>
+         <li><a href="https://neetcode.io/">NeetCode.io</a></li>
+         <li><a href="https://skillsyncer.com/dashboard">SkillSyncer</a></li>
+         <li><a href="https://www.rippling.com/">Rippling</a></li>
+         <li><a href="https://remoteok.com/">RemoteOK</a></li>
+         <li><a href="https://contra.com/?userType=independent">Contra</a></li>
+         <li><a href="https://solidgigs.com/">SolidGigs</a></li>
+         <li><a href="https://www.workingnomads.com/jobs">Working Nomads</a></li>
+         <li><a href="https://www.toptal.com/">Toptal</a></li>
+         <li><a href="https://himalayas.app/">Himalayas.app</a></li>
+         <li><a href="https://www.textbroker.com/">Textbroker</a></li>
+         <li><a href="https://authenticjobs.com/">Authentic Jobs</a></li>
+         <li><a href="https://dribbble.com/for-designers">Dribbble</a></li>
+         <li><a href="https://www.foundit.in/">Foundit</a></li>
+         <li><a href="https://hubstafftalent.net/">Hubstaff Talent</a></li>
+         <li><a href="https://datajobs.com/">DataJobs</a></li>
+         <li><a href="https://www.moaijobs.com/">Moai Jobs</a></li>
+         <li><a href="https://read.cv/explore">Read.cv</a></li>
+         <li><a href="https://www.findadatajob.com/">Find A Data Job</a></li>
+         <li><a href="https://www.glassdoor.co.in/Job/index.htm">Glassdoor</a></li>
+         <li><a href="https://joinhandshake.com/">Handshake</a></li>
+         <li><a href="https://www.ziprecruiter.in/">ZipRecruiter</a></li>
+         <li><a href="https://jobright.ai/jobs/recommend">Jobright AI</a></li>
+         <li><a href="https://www.f1hire.com/">F1Hire</a></li>
+         <li><a href="https://simplify.jobs/dashboard">Simplify Dashboard</a></li>
+         <li><a href="https://layoffs.fyi/">Layoffs.fyi</a></li>
+         <li><a href="https://notify.careers/">Notify.careers</a></li>
+         <li><a href="https://www.talentefinder.com/en/tinder-for-jobs">TalenteFinder</a></li>
+         <li><a href="https://www.skillsire.com/">Skillsire</a></li>
+         <li><a href="https://unstop.com/">Unstop</a></li>
+         <li><a href="https://usemassive.com/">Massive</a></li>
+         <li><a href="https://www.jobsolv.com/">Jobsolv</a></li>
+         <li><a href="https://mindy.com/">Mindy</a></li>
+         <li><a href="https://www.cia.gov/ehl/careers">CIA Careers</a></li>
+         <li><a href="https://www.wonsulting.ai/jobboardai">Wonsulting AI Board</a></li>
+         <li><a href="https://www.dataanalyst.com/">DataAnalyst.com</a></li>
+         <li><a href="https://www.aijobs.com/">AIJobs.com</a></li>
+         <li><a href="https://stackoverflowjobs.com/?co=US&jk=d1f074ec03e39bbb">Stack Overflow Jobs</a></li>
+         <li><a href="https://www.harnham.com/">Harnham</a></li>
+         <li><a href="https://www.burtchworks.com/job-seekers">Burtch Works</a></li>
+      </ul>
+   </body>
+</html>
